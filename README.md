@@ -1,1 +1,0 @@
-# oop-svg-logo-maker
