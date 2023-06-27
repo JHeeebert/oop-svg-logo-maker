@@ -5,12 +5,12 @@ describe('Circle', () => {
     it('should render a circle', () => {
         logoName = "FZZ",
         logoColor = "red",
-        textColor = "white"
+        logoTextColor = "white"
         logoShape = "circle"
-        const circle = new Circle(logoName, logoColor, textColor);
+        const circle = new Circle(logoName, logoColor, logoTextColor);
         expect(circle.render()).toBe(`
         <div style="background-color: ${this.logoColor}; height: 200px; width: 200px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
-            <h1 style="color: ${this.textColor}; font-size: 100px;">${this.logoName}</h1>
+            <h1 style="color: ${this.logoTextColor}; font-size: 100px;">${this.logoName}</h1>
         </div>
         `);
     });
