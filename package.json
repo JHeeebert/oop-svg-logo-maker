@@ -4,39 +4,35 @@
     "description": "A simple OOP SVG logo maker",
     "main": "index.js",
     "directories": {
-        "test": "test"
-    "example": "example"
-    "lib": "lib"
-},
-"scripts": {
-    "start": "node index.js"
-    "test": "jest"
-},
+        "test": "test",
+        "example": "example",
+        "lib": "lib"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jheeebert/oop-svg-logo-maker.git"
+    },
+    "keywords": [
+        "svg",
+        "logo",
+        "maker",
+        "oop"
+    ],
+    "author": "jheeebert",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jheeebert/oop-svg-logo-maker/issues"
+    },
+    "homepage": "https://github.com/jheeebert/oop-svg-logo-maker#readme",
+    "dependencies": {
+        "inquirer": "^8.2.4",
+        "iss-css-color": "^1.0.0"
+    },
+    "devDependencies": {
+        "jest": "^29.5.0"
+    }
 }
-"repository": {
-    "type": "git",
-    "url": "git+https://github.com/jheeebert/oop-svg-logo-maker.git"
-},
-"keywords": [
-    "svg",
-    "logo",
-    "maker",
-    "oop"
-],
-"author": "jheeebert",
-"license": "ISC",
-"bugs": {
-    "url": "https://github.com/jheeebert/oop-svg-logo-maker/issues
-},
-
-homepage": "https://github.com/jheeebert/oop-svg-logo-maker#readme",
-"dependencies": {
-    "inquirer": "^8.2.4",
-    "iss-css-color": "^1.0.0",
-},
-"devDependencies": {
-    "jest": "^29.5.0"
-}
-}
-
-``` 
