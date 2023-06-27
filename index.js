@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateSVG = require('./src/generateSVG.js');
-const generateShape = require('./src/generateShape.js');
+const generateSVG = require('./lib/generateSVG.js');
+const generateShape = require('./lib/generateShape.js');
 
-inquirer.prompt([
+function init() {
+    inquirer.prompt([
     {
         type: 'input',
         name: "logoName",
@@ -70,5 +71,8 @@ inquirer.prompt([
         console.log(err);
     }
     );
-    
+}
+
+    prompt();
+
 
