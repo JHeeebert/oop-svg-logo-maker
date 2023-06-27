@@ -47,7 +47,7 @@ inquirer.prompt([
         type: "list",
         name: "logoShape",
         message: "Choose a shape for your logo:",
-        choices: ["Circle", "Square", "Rectangle", "Diamond", "Triangle", "Star", "Heart", ],
+        choices: ["Circle", "Square", "Rectangle", "Diamond", "Triangle", "Star", "Heart",],
         validate: shapeInput => {
             if (shapeInput.length < 1) {
                 console.log("Please enter a valid shape.");
@@ -58,15 +58,12 @@ inquirer.prompt([
         }
     },
 ])
-.then(answers => {
-    const logo = generateShape(answers);
-    const svg = generateSVG(logo);
-    fs.writeFile('./dist/index.html', svg, err => {
-        if (err) throw err;
-        console.log("Your logo has been generated! Check out index.html in the dist folder to see it!");
+    .then(answers => {
+        const logo = generateShape(answers);
+        const svg = generateSVG(logo);
+        fs.writeFile('./dist/index.html', svg, err => {
+            if (err) throw err;
+            console.log("Your logo has been generated! Check out index.html in the dist folder to see it!");
+        });
     });
-}
-);
-.catch(err) => {
-    console.log(err);
-}
+
