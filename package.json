@@ -29,8 +29,7 @@
     },
     "homepage": "https://github.com/jheeebert/oop-svg-logo-maker#readme",
     "dependencies": {
-        "inquirer": "^8.2.4",
-        "iss-css-color": "^1.0.0"
+        "inquirer": "^8.2.4"
     },
     "devDependencies": {
         "jest": "^29.5.0"

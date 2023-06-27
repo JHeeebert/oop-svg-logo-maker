@@ -4,6 +4,23 @@ const {Circle, Square, Rectangle, Diamond, Triangle, Star, Heart} = require('./l
 const generateSVG = require('./lib/generateSVG.js');
 const generateShape = require('./lib/generateShape.js');
 
+class Svg{
+    constructor(logoName, logoColor, logoTextColor, logoShape) {
+        this.logoName = logoName;
+        this.logoColor = logoColor;
+        this.logoTextColor = logoTextColor;
+        this.logoShape = logoShape;
+    }
+    generateSvg() {
+        return `
+        <svg height="100" width="100">
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+            Sorry, your browser does not support inline SVG.
+        </svg>
+        `;
+    }
+}
+
 function init() {
     inquirer.prompt([
     {
@@ -60,20 +77,17 @@ function init() {
         }
     },
 ])
-    .then(answers => {
-        const logo = generateShape(answers);
-        const svg = generateSVG(logo);
-        fs.writeFile('./dist/index.html', svg, err => {
-            if (err) throw err;
-            console.log("Your logo has been generated! Check out index.html in the dist folder to see it!");
-        });
-    })
-    .catch(err => {
-        console.log(err);
-    }
-    );
+.then(answers => { 
+    const {logoName, logoColor, logoTextColor, logoShape} = answers;
+    const logo = new Svg(logoName, logoColor, logoTextColor, logoShape);
+    const shape = generateShape(logo);
+    const svg = generateSVG(shape);
+    fs.writeFile('./dist/index.html', svg, err => {
+        if (err) throw err;
+        console.log('File created! Check out index.html in this directory to see it!');
+    });
+}
+)
 }
 
-    init();
-
-
+init();
