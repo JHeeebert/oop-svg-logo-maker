@@ -1,4 +1,4 @@
-const Shape = require('../lib/shape');
+const Shape = require('../lib/shapes');
 
 var testCases = [
     {

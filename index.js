@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const {Circle, Square, Rectangle, Diamond, Triangle, Star, Heart} = require('./lib/shapes.js');
 const generateSVG = require('./lib/generateSVG.js');
 const generateShape = require('./lib/generateShape.js');
 
@@ -73,6 +74,6 @@ function init() {
     );
 }
 
-    prompt();
+    init();
 
 
