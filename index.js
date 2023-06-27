@@ -65,5 +65,10 @@ inquirer.prompt([
             if (err) throw err;
             console.log("Your logo has been generated! Check out index.html in the dist folder to see it!");
         });
-    });
+    })
+    .catch(err => {
+        console.log(err);
+    }
+    );
+    
 

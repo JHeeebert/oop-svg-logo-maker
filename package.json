@@ -1,5 +1,5 @@
 {
-    "name": "OOP-SVG-Logo-Maker",
+    "name": "oop-svg-logo-maker",
     "version": "1.0.0",
     "description": "A simple OOP SVG logo maker",
     "main": "index.js",
