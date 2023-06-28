@@ -1,10 +1,12 @@
+// imports and requires all the packages needed for the application
 const inquirer = require('inquirer');
+// imports node file system
 const fs = require('fs');
-const {Circle, Square, Rectangle, Diamond, Triangle, Star, Heart} = require('./lib/shapes.js');
-const generateSVG = require('./lib/generateSVG.js');
-const generateShape = require('./lib/generateShape.js');
+// imports classes from lib folder
+const { generateSVG } = require('./lib/generateSVG');
+const { generateShapes } = require('./lib/generateShapes');
 
-class Svg{
+class Svg{ 
     constructor(logoName, logoColor, logoTextColor, logoShape) {
         this.logoName = logoName;
         this.logoColor = logoColor;
@@ -21,73 +23,70 @@ class Svg{
     }
 }
 
-function init() {
-    inquirer.prompt([
-    {
-        type: 'input',
-        name: "logoName",
-        message: "Enter a 1-3 Letter Logo Name: ",
-        validate: nameInput => {
-            if (nameInput.length > 3 || nameInput.length < 1) {
-                console.log("Please enter a valid name.");
-                return false;
-            } else {
-                return true;
-            }
-        }
-    },
-    {
-        type: 'input',
-        name: "logoColor",
-        message: "Enter a color or a hex code for your logos background color:",
-        validate: colorInput => {
-            if (colorInput.length < 1) {
-                console.log("Please enter a valid color.");
-                return false;
-            } else {
-                return true;
-            }
-        }
-    },
-    {
-        type: 'input',
-        name: "logoTextColor",
-        message: "Enter a color or a hex code for your logos text color:",
-        validate: colorInput => {
-            if (colorInput.length < 1) {
-                console.log("Please enter a valid color.");
-                return false;
-            } else {
-                return true;
-            }
-        }
-    },
-    {
-        type: "list",
-        name: "logoShape",
-        message: "Choose a shape for your logo:",
-        choices: ["Circle", "Square", "Rectangle", "Diamond", "Triangle", "Star", "Heart",],
-        validate: shapeInput => {
-            if (shapeInput.length < 1) {
-                console.log("Please enter a valid shape.");
-                return false;
-            } else {
-                return true;
-            }
-        }
-    },
-])
-.then(answers => { 
-    const {logoName, logoColor, logoTextColor, logoShape} = answers;
-    const logo = new Svg(logoName, logoColor, logoTextColor, logoShape);
-    const shape = generateShape(logo);
-    const svg = generateSVG(shape);
-    fs.writeFile('./dist/index.html', svg, err => {
-        if (err) throw err;
-        console.log('File created! Check out index.html in this directory to see it!');
-    });
-}
-)
-}
 
-init();
+
+const promptUser = () =>
+inquirer
+    .prompt([
+        {
+            type: 'input',
+            name: 'logoName',
+            message: 'Please enter 1-3 letters for your logo name:',
+            validate: (logoName) => {
+                if (logoName.length > 3) {
+                    console.log('Please enter 1-3 letters for your logo name:');
+                    return false;
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'logoTextColor',
+            message: 'Please enter a color for your logo text:',
+            validate: (logoTextColor) => {
+                if (logoTextColor.length === 0) {
+                    console.log('Please enter a color for your logo text:');
+                    return false;
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'logoBackgroundColor',
+            message: 'Please enter a color for your logo background:',
+            validate: (logoBackgroundColor) => {
+                if (logoBackgroundColor.length === 0) {
+                    console.log('Please enter a color for your logo background:');
+                    return false;
+                }
+                return true;
+            }
+        },
+        {
+            type: 'list',
+            name: 'logoShape',
+            message: 'Please select a shape for your logo:',
+            choices: ['Square', 'Circle', 'Triangle', 'Star', 'Heart', 'Diamond', 'Rectangle' ]
+        },
+    ])
+    .then((answers) => {
+        const shape = generateShape(answers);
+        const svg = generateSVG(shape);
+        fs.writeFile('logo.html', svg, (err) => {
+            if (err) throw err;
+            console.log('The file has been saved!');
+        });
+    })
+    .catch((error) => {
+        if (error.isTtyError) {
+            console.log('Prompt could not be rendered in the current environment');
+        } else {
+            console.log('Something else went wrong');
+        }
+    });
+
+
+
+promptUser();
