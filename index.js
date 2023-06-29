@@ -20,15 +20,9 @@ const promptUser = () =>
             },
             {
                 type: 'input',
-                name: 'logoColor',
-                message: 'Please enter a color for your logo text:',
-                default: 'white',
-            },
-            {
-                type: 'input',
                 name: 'logoTextColor',
                 message: 'Please enter a color for your logo text:',
-                default: 'black',
+                default: 'white',
             },
             {
                 type: 'input',
