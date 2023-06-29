@@ -1,7 +1,9 @@
 
   # SVG Logo Maker 📌
   ## Description 📈
-  a nodeJS app that allows you to build a logo 
+AS a freelance web developer
+I WANT to generate a simple logo for my projects
+SO THAT I don't have to pay a graphic designer
   ## Table of Contents 📓
   1️⃣ [Installation](#installation) 💻 <br>
   2️⃣ [Usage](#usage) 📎 <br>
