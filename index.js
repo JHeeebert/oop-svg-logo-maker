@@ -81,8 +81,6 @@ const generateSquareLogo = (data) => {
     const logoName = data.logoName;
     const logoColor = data.logoColor;
     const logoTextColor = data.logoTextColor;
-    const logoBackgroundColor = data.logoBackgroundColor;
-    const logoShape = data.logoShape;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
     <title>${logoName}</title>
     <rect x="0" y="0" width="100" height="100" fill="${logoColor}" stroke="${logoTextColor}" stroke
@@ -94,8 +92,6 @@ const generateCircleLogo = (data) => {
     const logoName = data.logoName;
     const logoColor = data.logoColor;
     const logoTextColor = data.logoTextColor;
-    const logoBackgroundColor = data.logoBackgroundColor;
-    const logoShape = data.logoShape;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
     <title>${logoName}</title>
     <circle cx="50" cy="50" r="40" fill="${logoColor}" stroke="${logoTextColor}" stroke
@@ -107,8 +103,6 @@ const generateTriangleLogo = (data) => {
     const logoName = data.logoName;
     const logoColor = data.logoColor;
     const logoTextColor = data.logoTextColor;
-    const logoBackgroundColor = data.logoBackgroundColor;
-    const logoShape = data.logoShape;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
     <title>${logoName}</title>
     <polygon points="50,0 0,50 50,100" fill="${logoColor}" stroke="${logoTextColor}" stroke
@@ -120,8 +114,6 @@ const generateStarLogo = (data) => {
     const logoName = data.logoName;
     const logoColor = data.logoColor;
     const logoTextColor = data.logoTextColor;
-    const logoBackgroundColor = data.logoBackgroundColor;
-    const logoShape = data.logoShape;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
     <title>${logoName}</title>
     <polygon points="50,0 0,50 50,100" fill="${logoColor}" stroke="${logoTextColor}" stroke
@@ -133,8 +125,6 @@ const generateHeartLogo = (data) => {
     const logoName = data.logoName;
     const logoColor = data.logoColor;
     const logoTextColor = data.logoTextColor;
-    const logoBackgroundColor = data.logoBackgroundColor;
-    const logoShape = data.logoShape;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
     <title>${logoName}</title>
     <polygon points="50,0 0,50 50,100" fill="${logoColor}" stroke="${logoTextColor}" stroke
@@ -146,8 +136,6 @@ const generateDiamondLogo = (data) => {
     const logoName = data.logoName;
     const logoColor = data.logoColor;
     const logoTextColor = data.logoTextColor;
-    const logoBackgroundColor = data.logoBackgroundColor;
-    const logoShape = data.logoShape;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
     <title>${logoName}</title>
     <polygon points="50,0 0,50 50,100" fill="${logoColor}" stroke="${logoTextColor}" stroke
@@ -159,19 +147,12 @@ const generateRectangleLogo = (data) => {
     const logoName = data.logoName;
     const logoColor = data.logoColor;
     const logoTextColor = data.logoTextColor;
-    const logoBackgroundColor = data.logoBackgroundColor;
-    const logoShape = data.logoShape;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
     <title>${logoName}</title> <rect x="0" y="0" width="100" height="10 0" fill="${logoColor}" stroke="${logoTextColor}" stroke = "none" /> </svg>`;
     }
 
 const generateSVG = (logo) => {
-    return `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-    <title>${logo.logoName}</title>
-    <rect x="0" y="0" width="100" height="100" fill="${logo.logoColor}" stroke="${logo.logoTextColor}" stroke
-    ="none" />
-    </svg>`;
+    return logo;
 }
 
 promptUser();
